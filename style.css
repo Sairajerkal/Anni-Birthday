@@ -1,40 +1,139 @@
 body{
-    margin:0;
-    font-family:Arial;
-    text-align:center;
-    background: linear-gradient(135deg,#ff758c,#ff7eb3);
-    color:white;
+margin:0;
+font-family:Arial;
+text-align:center;
+color:white;
+overflow:hidden;
+height:100vh;
 }
 
-.container{
-    margin-top:100px;
+/* page layout */
+
+.page{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+opacity:0;
+transition:opacity 0.5s;
 }
 
-h1{
-    font-size:50px;
+.show{
+opacity:1;
 }
 
-.message{
-    font-size:20px;
-    width:60%;
-    margin:auto;
+#mainSite{
+display:none;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 }
+
+/* start page background image */
+
+#startPage{
+
+background:
+linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+url("anni_childhood.jpeg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+}
+
+/* timeline */
+
+.timeline{
+max-width:600px;
+margin:auto;
+text-align:left;
+}
+
+.timeline div{
+background:white;
+color:#ff4e8a;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+}
+
+.memoryImages{
+
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:20px;
+
+}
+
+.memoryImages img{
+
+width:300px;
+height:220px;
+object-fit:cover;
+
+border-radius:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+
+}
+
+/* balloons */
+
+.balloons{
+position:absolute;
+bottom:-120px;
+width:100%;
+}
+
+.balloon{
+width:50px;
+height:70px;
+border-radius:50%;
+position:absolute;
+animation:float 8s infinite;
+}
+
+/* balloon strings */
+
+.balloon::after{
+content:"";
+position:absolute;
+top:70px;
+left:50%;
+width:2px;
+height:80px;
+background:white;
+transform:translateX(-50%);
+}
+
+.balloon:nth-child(1){left:10%; background:#ff4e8a;}
+.balloon:nth-child(2){left:30%; background:#ffd93d;}
+.balloon:nth-child(3){left:50%; background:#6bcB77;}
+.balloon:nth-child(4){left:70%; background:#4d96ff;}
+.balloon:nth-child(5){left:90%; background:#ff6b6b;}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120vh);}
+}
+
+/* button */
 
 button{
-    margin-top:30px;
-    padding:15px 30px;
-    font-size:18px;
-    border:none;
-    border-radius:10px;
-    background:white;
-    color:#ff4e8a;
-    cursor:pointer;
-}
-
-.hidden{
-    display:none;
-}
-
-#surprise{
-    margin-top:40px;
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:white;
+color:#ff4e8a;
+cursor:pointer;
+margin-top:20px;
 }
